@@ -83,16 +83,16 @@ http_status_descriptions = {
     511: 'Network Authentication Required - Требуется сетевая аутентификация\nКлиент должен аутентифицироваться, чтобы получить доступ к сети.'
 }
 
-models = {
-    'ge-2.5-f': 'gemini-2.5-flash' ,
-    'ge-2.5-p': 'gemini-2.5-pro ',
-    'll-4': 'llama-4-scout ',
-    'ds-r1': 'deepseek-r1',
-    'mis-3': 'mistral-small-3',
-    'qw-30b': 'qwen-3-30b',
-    'qw-235b': 'qwen-3-235b ',
-    'gemma-3': 'gemma-3',
-}
+models = [
+    'gemini-2.5-flash' ,
+    'gemini-2.5-pro ',
+    'llama-4-scout ',
+    'deepseek-r1',
+    'mistral-small-3',
+    'qwen-3-30b',
+    'qwen-3-235b ',
+    'gemma-3',
+]
 
 def make_log(log_text='Am I teapot?'):
     """
@@ -113,13 +113,14 @@ def make_log(log_text='Am I teapot?'):
 *   Временно перенаправляет стандартный вывод (`sys.stdout`) в файл для выполнения записи.
 *   Зависит от глобальной переменной `original_stdout` для восстановления стандартного вывода после записи.
 """
-    pass
-    """with open('logs.txt', 'r', encoding='utf-8') as file:
+    with open('logs.txt', 'w', encoding='utf-8') as file:
+     pass
+    with open('logs.txt', 'r', encoding='utf-8') as file:
         text = file.read()
     with open('logs.txt', 'w', encoding='utf-8') as file:
         sys.stdout = file
         print(f'{text}{datetime.datetime.now().strftime("%H:%M:%S")} - {log_text}')
-        sys.stdout = original_stdout"""
+        sys.stdout = original_stdout
 
 def clear():
     """

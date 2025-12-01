@@ -1,7 +1,3 @@
-import requests
-import os
-
-from src.request import make_request
 from src.choose_module import choose_module
 
 def main():

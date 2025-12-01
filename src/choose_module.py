@@ -46,7 +46,7 @@ def choose_module():
     for key in package_access_map.keys():
         packages.append(key)
     try: inp = int(input('Введите номер выбраного модуля: '))
-    except TypeError: inp = 0
+    except ValueError or TypeError: inp = 0
     if inp == 0 or inp > len(packages): return 'Вась, всё фигня, давай по новой'
     module = importlib.import_module(packages[inp-1])
     module.start()

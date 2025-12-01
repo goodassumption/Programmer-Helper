@@ -15,7 +15,10 @@ def make_request(data: dict):
         responce = requests.post(url=url, headers=headers, data=data)
         status_code = responce.status_code
         make_log(f'Выполнен запрос по ссылке {url}. Код: {status_code}')
-        make_log(f'{http_status_descriptions.get(status_code, 'Описание не найдено')}')
+        make_log(f'{status_code} - {http_status_descriptions.get(status_code, 'Описание не найдено')}')
+        if status_code >= 400:
+            print(f'{http_status_descriptions.get(status_code, 'Описание не найдено')}')
+            return
 
     except Exception as e:
         print(f'Произошла непредвиденная ошибка при запросе.')

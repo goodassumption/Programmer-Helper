@@ -9,7 +9,7 @@ def start():
     
     request_ = {
         "text": text,
-        "modelName": models['ge-2.5-p'],
+        "modelName": models[2],
         "systemPrompt": systemPrompt,
     }
     request.make_request(data=request_)
